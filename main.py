@@ -55,7 +55,7 @@ except:
     with open('config.ini', 'w') as conf:
         config_object.write(conf)
 
-def downloaderMenu():
+def downloaderMenu(debug, tg_ch_id):
     print(colorText("[[yellow]]Download channel documents to downloads folder with channel id.[[white]]"))
     tg_ch_id = int(input("[TELEGRAM_CHANNEL_ID]>"))
     print(colorText("[[red]]Download starting...[[white]]"))
@@ -63,13 +63,20 @@ def downloaderMenu():
     main()
 
 
-def forwarderMenu():
-    print(colorText("[[yellow]]Copy channel messages to another channel with channel ids.[[white]]"))
-    tg_trgt_ch_id = int(input("[TELEGRAM_TARGET_CHANNEL_ID]>"))
-    tg_cpyto_ch_id = int(input("[TELEGRAM_COPYTO_CHANNEL_ID]>"))
-    print(colorText("[[red]]Forward starting...[[white]]"))
-    asyncio.run(forwarder.forwarder(tg_trgt_ch_id, tg_cpyto_ch_id, api_id, api_hash))
-    main()
+def forwarderMenu(debug, tg_trgt_ch_id=0, tg_cpyto_ch_id=0):
+    if debug == True:
+        tg_trgt_ch_id = int(tg_trgt_ch_id)
+        tg_cpyto_ch_id = int(tg_cpyto_ch_id)
+        print(colorText("[[red]]Forward starting...[[white]]"))
+        asyncio.run(forwarder.forwarder(tg_trgt_ch_id, tg_cpyto_ch_id, api_id, api_hash))
+        main()
+    else:
+        print(colorText("[[yellow]]Copy channel messages to another channel with channel ids.[[white]]"))
+        tg_trgt_ch_id = int(input("[TELEGRAM_TARGET_CHANNEL_ID]>"))
+        tg_cpyto_ch_id = int(input("[TELEGRAM_COPYTO_CHANNEL_ID]>"))
+        print(colorText("[[red]]Forward starting...[[white]]"))
+        asyncio.run(forwarder.forwarder(tg_trgt_ch_id, tg_cpyto_ch_id, api_id, api_hash))
+        main()
 
 
 
@@ -88,10 +95,16 @@ def main():
             clear()
             menudraw()
 
-            forwarderMenu()
+            forwarderMenu(False,)
 
             break
 
 main()
+
+
+
+
+
+
 
 
