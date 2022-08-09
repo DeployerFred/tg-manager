@@ -1,6 +1,6 @@
 import asyncio
 import downloader, forwarder
-import keyboard
+#import keyboard
 import os
 from configparser import ConfigParser
 config_object = ConfigParser()
@@ -84,24 +84,30 @@ def main():
     print(colorText("[[green]][C] [[yellow]]Copy channel messages[[white]]"))
     print(colorText("[[green]][D] [[yellow]]Download channel documents[[white]]"))
     print(">")
-    while True:
-        if keyboard.is_pressed("D"):
-            clear()
-            menudraw()
+  #  while True:
+    #    if keyboard.is_pressed("D"):
+     #       clear()
+      #      menudraw()
 
-            downloaderMenu()
-            break
-        if keyboard.is_pressed("C"):
-            clear()
-            menudraw()
+      #      downloaderMenu()
+       #     break
+    #    if keyboard.is_pressed("C"):
+     #       clear()
+      #      menudraw()
 
-            forwarderMenu(False,)
+        #    forwarderMenu(False,)
 
-            break
+        #    break
 
-main()
+#main()
 
+def developer():
+    clear()
 
+    menudraw()
+
+    forwarderMenu(False,)
+    
 
 
 
