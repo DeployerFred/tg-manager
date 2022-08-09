@@ -1,5 +1,5 @@
 # lllcet-manager
-A Telegram bot to copy channels and download documents.
+LLLCET Library Management
 
 ## CLI
 ![image](https://raw.githubusercontent.com/uraninite/lllcet-manager/main/llcet.jpeg)
