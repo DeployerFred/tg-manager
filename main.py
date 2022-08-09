@@ -107,6 +107,8 @@ def developer():
     menudraw()
 
     forwarderMenu(False,)
+  
+developer()
     
 
 
